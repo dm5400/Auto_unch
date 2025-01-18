@@ -1,0 +1,138 @@
+
+arduino.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000bc  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  00000110  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000028  00000000  00000000  00000140  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000152  00000000  00000000  00000168  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000113  00000000  00000000  000002ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000150  00000000  00000000  000003cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000034  00000000  00000000  00000520  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    0000018f  00000000  00000000  00000554  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    0000001f  00000000  00000000  000006e3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000018  00000000  00000000  00000702  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 48 00 	call	0x90	; 0x90 <main>
+  78:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <SPI_ReadByte>:
+#define ADC_reg 0 //PC0
+
+uint8_t SPI_ReadByte(uint8_t data)
+{
+	uint8_t report;
+	PORTB &= ~(1<<SPI_SS);
+  80:	2a 98       	cbi	0x05, 2	; 5
+	SPDR = data;
+  82:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+  84:	0d b4       	in	r0, 0x2d	; 45
+  86:	07 fe       	sbrs	r0, 7
+  88:	fd cf       	rjmp	.-6      	; 0x84 <SPI_ReadByte+0x4>
+	report = SPDR;
+  8a:	8e b5       	in	r24, 0x2e	; 46
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  8c:	00 00       	nop
+	//PORTB |= (1<<SPI_SS); не стирать
+	_delay_us(1);
+	return report;
+}
+  8e:	08 95       	ret
+
+00000090 <main>:
+
+int main(void)
+{
+    DDRB  |= (1<<SPI_MOSI)|(1<<SPI_SCK)|(1<<SPI_SS); // ???????????? ???
+  90:	84 b1       	in	r24, 0x04	; 4
+  92:	8c 62       	ori	r24, 0x2C	; 44
+  94:	84 b9       	out	0x04, r24	; 4
+    DDRC = 0x00;
+  96:	17 b8       	out	0x07, r1	; 7
+    SPCR |= (0<<SPIE)|(1<<SPE)|(0<<DORD)|(1<<MSTR)|(0<<CPOL)|(1<<CPHA)|(0<<SPR1)|(1<<SPR0);// spr0-1 spr1-0 fck/8
+  98:	8c b5       	in	r24, 0x2c	; 44
+  9a:	85 65       	ori	r24, 0x55	; 85
+  9c:	8c bd       	out	0x2c, r24	; 44
+    SPSR = (0<<SPI2X);
+  9e:	1d bc       	out	0x2d, r1	; 45
+
+    ADCSRA = 0x00; //disable adc
+  a0:	ea e7       	ldi	r30, 0x7A	; 122
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	10 82       	st	Z, r1
+	ADMUX = 0b00110000; //00-выбор AREF, 1- Выравнивание по левому краю, 10000- ADC0-pos, ADC1-neg.
+  a6:	80 e3       	ldi	r24, 0x30	; 48
+  a8:	80 93 7c 00 	sts	0x007C, r24
+	ADCSRA = (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0); // Aden- adc on, предделитель равен 128
+  ac:	87 e8       	ldi	r24, 0x87	; 135
+  ae:	80 83       	st	Z, r24
+	//ADCSRA |= (1<<ADSC);//запуск одиночного преобразования
+    while(1)
+    {
+      SPI_ReadByte(0x54);
+  b0:	84 e5       	ldi	r24, 0x54	; 84
+  b2:	0e 94 40 00 	call	0x80	; 0x80 <SPI_ReadByte>
+  b6:	fc cf       	rjmp	.-8      	; 0xb0 <main+0x20>
+
+000000b8 <_exit>:
+  b8:	f8 94       	cli
+
+000000ba <__stop_program>:
+  ba:	ff cf       	rjmp	.-2      	; 0xba <__stop_program>
