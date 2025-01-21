@@ -3,56 +3,58 @@ arduino.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000bc  00000000  00000000  00000054  2**1
+  0 .text         000001d0  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      00000030  00000000  00000000  00000110  2**0
+  1 .bss          00000001  00800100  00800100  00000244  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  00000244  2**0
                   CONTENTS, READONLY
-  2 .debug_aranges 00000028  00000000  00000000  00000140  2**0
+  3 .debug_aranges 00000038  00000000  00000000  00000274  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000152  00000000  00000000  00000168  2**0
+  4 .debug_info   00000233  00000000  00000000  000002ac  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 00000113  00000000  00000000  000002ba  2**0
+  5 .debug_abbrev 00000159  00000000  00000000  000004df  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   00000150  00000000  00000000  000003cd  2**0
+  6 .debug_line   000001a2  00000000  00000000  00000638  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000034  00000000  00000000  00000520  2**2
+  7 .debug_frame  00000064  00000000  00000000  000007dc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000018f  00000000  00000000  00000554  2**0
+  8 .debug_str    000001ab  00000000  00000000  00000840  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    0000001f  00000000  00000000  000006e3  2**0
+  9 .debug_loc    00000139  00000000  00000000  000009eb  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000018  00000000  00000000  00000702  2**0
+ 10 .debug_ranges 00000028  00000000  00000000  00000b24  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
 
 00000068 <__ctors_end>:
   68:	11 24       	eor	r1, r1
@@ -61,78 +63,279 @@ Disassembly of section .text:
   6e:	d8 e0       	ldi	r29, 0x08	; 8
   70:	de bf       	out	0x3e, r29	; 62
   72:	cd bf       	out	0x3d, r28	; 61
-  74:	0e 94 48 00 	call	0x90	; 0x90 <main>
-  78:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <_exit>
 
-0000007c <__bad_interrupt>:
-  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
 
-00000080 <SPI_ReadByte>:
-#define ADC_reg 0 //PC0
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a1 30       	cpi	r26, 0x01	; 1
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 6b 00 	call	0xd6	; 0xd6 <main>
+  88:	0c 94 e6 00 	jmp	0x1cc	; 0x1cc <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <SPI_ReadByte>:
+volatile unsigned char dac_type;
 
 uint8_t SPI_ReadByte(uint8_t data)
 {
 	uint8_t report;
-	PORTB &= ~(1<<SPI_SS);
-  80:	2a 98       	cbi	0x05, 2	; 5
+	 if (PINB & (1 << PINB1)) PORTB &= ~(1<<SPI_SS);
+  90:	19 9b       	sbis	0x03, 1	; 3
+  92:	02 c0       	rjmp	.+4      	; 0x98 <SPI_ReadByte+0x8>
+  94:	2a 98       	cbi	0x05, 2	; 5
+  96:	01 c0       	rjmp	.+2      	; 0x9a <SPI_ReadByte+0xa>
+     else PORTB |= (1<<SPI_SS);
+  98:	2a 9a       	sbi	0x05, 2	; 5
+   // PORTB &= ~(1<<SPI_SS);
 	SPDR = data;
-  82:	8e bd       	out	0x2e, r24	; 46
+  9a:	8e bd       	out	0x2e, r24	; 46
 	while(!(SPSR & (1<<SPIF)));
-  84:	0d b4       	in	r0, 0x2d	; 45
-  86:	07 fe       	sbrs	r0, 7
-  88:	fd cf       	rjmp	.-6      	; 0x84 <SPI_ReadByte+0x4>
+  9c:	0d b4       	in	r0, 0x2d	; 45
+  9e:	07 fe       	sbrs	r0, 7
+  a0:	fd cf       	rjmp	.-6      	; 0x9c <SPI_ReadByte+0xc>
 	report = SPDR;
-  8a:	8e b5       	in	r24, 0x2e	; 46
+  a2:	8e b5       	in	r24, 0x2e	; 46
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  8c:	00 00       	nop
+  a4:	00 00       	nop
 	//PORTB |= (1<<SPI_SS); не стирать
 	_delay_us(1);
 	return report;
 }
-  8e:	08 95       	ret
+  a6:	08 95       	ret
 
-00000090 <main>:
+000000a8 <read_adc>:
+    }
+}
+unsigned int read_adc(void)
+{
+	unsigned int a,b;
+	ADCSRA |= (1<<ADSC); // начать оцифровку
+  a8:	ea e7       	ldi	r30, 0x7A	; 122
+  aa:	f0 e0       	ldi	r31, 0x00	; 0
+  ac:	80 81       	ld	r24, Z
+  ae:	80 64       	ori	r24, 0x40	; 64
+  b0:	80 83       	st	Z, r24
+	while (ADCSRA & (1<<ADSC)); // ждать оцифровки
+  b2:	80 81       	ld	r24, Z
+  b4:	86 fd       	sbrc	r24, 6
+  b6:	fd cf       	rjmp	.-6      	; 0xb2 <read_adc+0xa>
+	a=(ADCL>>6); 
+  b8:	20 91 78 00 	lds	r18, 0x0078
+  bc:	22 95       	swap	r18
+  be:	26 95       	lsr	r18
+  c0:	26 95       	lsr	r18
+  c2:	23 70       	andi	r18, 0x03	; 3
+	b=(ADCH<<2);
+  c4:	80 91 79 00 	lds	r24, 0x0079
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	88 0f       	add	r24, r24
+  cc:	99 1f       	adc	r25, r25
+  ce:	88 0f       	add	r24, r24
+  d0:	99 1f       	adc	r25, r25
+	a=a|b; // формирование слова  АЦП
+	
+	return a;
+}
+  d2:	82 2b       	or	r24, r18
+  d4:	08 95       	ret
+
+000000d6 <main>:
 
 int main(void)
-{
+{   volatile unsigned int sum,tmp;
+  d6:	cf 93       	push	r28
+  d8:	df 93       	push	r29
+  da:	00 d0       	rcall	.+0      	; 0xdc <main+0x6>
+  dc:	00 d0       	rcall	.+0      	; 0xde <main+0x8>
+  de:	00 d0       	rcall	.+0      	; 0xe0 <main+0xa>
+  e0:	cd b7       	in	r28, 0x3d	; 61
+  e2:	de b7       	in	r29, 0x3e	; 62
+	volatile unsigned int res;
+    char q;
     DDRB  |= (1<<SPI_MOSI)|(1<<SPI_SCK)|(1<<SPI_SS); // ???????????? ???
-  90:	84 b1       	in	r24, 0x04	; 4
-  92:	8c 62       	ori	r24, 0x2C	; 44
-  94:	84 b9       	out	0x04, r24	; 4
+  e4:	84 b1       	in	r24, 0x04	; 4
+  e6:	8c 62       	ori	r24, 0x2C	; 44
+  e8:	84 b9       	out	0x04, r24	; 4
     DDRC = 0x00;
-  96:	17 b8       	out	0x07, r1	; 7
-    SPCR |= (0<<SPIE)|(1<<SPE)|(0<<DORD)|(1<<MSTR)|(0<<CPOL)|(1<<CPHA)|(0<<SPR1)|(1<<SPR0);// spr0-1 spr1-0 fck/8
-  98:	8c b5       	in	r24, 0x2c	; 44
-  9a:	85 65       	ori	r24, 0x55	; 85
-  9c:	8c bd       	out	0x2c, r24	; 44
-    SPSR = (0<<SPI2X);
-  9e:	1d bc       	out	0x2d, r1	; 45
-
+  ea:	17 b8       	out	0x07, r1	; 7
+    DDRD = 0xe0;
+  ec:	80 ee       	ldi	r24, 0xE0	; 224
+  ee:	8a b9       	out	0x0a, r24	; 10
+    PORTD = 0xe0;
+  f0:	8b b9       	out	0x0b, r24	; 11
+    SPCR |= (0<<SPIE)|(1<<SPE)|(0<<DORD)|(1<<MSTR)|(0<<CPOL)|(0<<CPHA)|(1<<SPR1)|(1<<SPR0);// spr0-1 spr1-0 fck/8
+  f2:	8c b5       	in	r24, 0x2c	; 44
+  f4:	83 65       	ori	r24, 0x53	; 83
+  f6:	8c bd       	out	0x2c, r24	; 44
+    SPSR = (1<<SPI2X);
+  f8:	81 e0       	ldi	r24, 0x01	; 1
+  fa:	8d bd       	out	0x2d, r24	; 45
+    PORTD |= (1<<2);// INT0 PD2 подтяжка
+  fc:	5a 9a       	sbi	0x0b, 2	; 11
+    PORTB |= (1<<1); //удалить
+  fe:	29 9a       	sbi	0x05, 1	; 5
     ADCSRA = 0x00; //disable adc
-  a0:	ea e7       	ldi	r30, 0x7A	; 122
-  a2:	f0 e0       	ldi	r31, 0x00	; 0
-  a4:	10 82       	st	Z, r1
-	ADMUX = 0b00110000; //00-выбор AREF, 1- Выравнивание по левому краю, 10000- ADC0-pos, ADC1-neg.
-  a6:	80 e3       	ldi	r24, 0x30	; 48
-  a8:	80 93 7c 00 	sts	0x007C, r24
+ 100:	ea e7       	ldi	r30, 0x7A	; 122
+ 102:	f0 e0       	ldi	r31, 0x00	; 0
+ 104:	10 82       	st	Z, r1
+	ADMUX = 0b01110000; //00-выбор AREF, 1- Выравнивание по левому краю, 10000- ADC0-pos, ADC1-neg.
+ 106:	80 e7       	ldi	r24, 0x70	; 112
+ 108:	80 93 7c 00 	sts	0x007C, r24
 	ADCSRA = (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0); // Aden- adc on, предделитель равен 128
-  ac:	87 e8       	ldi	r24, 0x87	; 135
-  ae:	80 83       	st	Z, r24
+ 10c:	87 e8       	ldi	r24, 0x87	; 135
+ 10e:	80 83       	st	Z, r24
 	//ADCSRA |= (1<<ADSC);//запуск одиночного преобразования
+    EICRA &= ~(1 << ISC01); //Сбрасываем ISC01
+ 110:	e9 e6       	ldi	r30, 0x69	; 105
+ 112:	f0 e0       	ldi	r31, 0x00	; 0
+ 114:	80 81       	ld	r24, Z
+ 116:	8d 7f       	andi	r24, 0xFD	; 253
+ 118:	80 83       	st	Z, r24
+    EICRA |= (1 << ISC01);
+ 11a:	80 81       	ld	r24, Z
+ 11c:	82 60       	ori	r24, 0x02	; 2
+ 11e:	80 83       	st	Z, r24
+  EICRA |= (1 << ISC00); // Устанавливаем ISC00 
+ 120:	80 81       	ld	r24, Z
+ 122:	81 60       	ori	r24, 0x01	; 1
+ 124:	80 83       	st	Z, r24
+  EIMSK |= (1 << INT0); // Разрешаем прерывание INT0
+ 126:	e8 9a       	sbi	0x1d, 0	; 29
+  sei();
+ 128:	78 94       	sei
     while(1)
-    {
-      SPI_ReadByte(0x54);
-  b0:	84 e5       	ldi	r24, 0x54	; 84
-  b2:	0e 94 40 00 	call	0x80	; 0x80 <SPI_ReadByte>
-  b6:	fc cf       	rjmp	.-8      	; 0xb0 <main+0x20>
+    {   q=0;
+		sum=0;
+ 12a:	1a 82       	std	Y+2, r1	; 0x02
+ 12c:	19 82       	std	Y+1, r1	; 0x01
+ 12e:	10 e4       	ldi	r17, 0x40	; 64
+      while (q<64) // 64 выборки от ацп
+		{
+			res=read_adc();
+ 130:	0e 94 54 00 	call	0xa8	; 0xa8 <read_adc>
+ 134:	9e 83       	std	Y+6, r25	; 0x06
+ 136:	8d 83       	std	Y+5, r24	; 0x05
+			res&= ~(1<<9);  //Tt=1/(0.003354+0.0006084*log(Rt/6.7826)+0.00001434*abs(pow(log(Rt/6.7826),2.3)))-273;
+ 138:	8d 81       	ldd	r24, Y+5	; 0x05
+ 13a:	9e 81       	ldd	r25, Y+6	; 0x06
+ 13c:	9d 7f       	andi	r25, 0xFD	; 253
+ 13e:	9e 83       	std	Y+6, r25	; 0x06
+ 140:	8d 83       	std	Y+5, r24	; 0x05
+			sum+=res;
+ 142:	89 81       	ldd	r24, Y+1	; 0x01
+ 144:	9a 81       	ldd	r25, Y+2	; 0x02
+ 146:	2d 81       	ldd	r18, Y+5	; 0x05
+ 148:	3e 81       	ldd	r19, Y+6	; 0x06
+ 14a:	82 0f       	add	r24, r18
+ 14c:	93 1f       	adc	r25, r19
+ 14e:	9a 83       	std	Y+2, r25	; 0x02
+ 150:	89 83       	std	Y+1, r24	; 0x01
+ 152:	11 50       	subi	r17, 0x01	; 1
+  EIMSK |= (1 << INT0); // Разрешаем прерывание INT0
+  sei();
+    while(1)
+    {   q=0;
+		sum=0;
+      while (q<64) // 64 выборки от ацп
+ 154:	69 f7       	brne	.-38     	; 0x130 <main+0x5a>
+			res=read_adc();
+			res&= ~(1<<9);  //Tt=1/(0.003354+0.0006084*log(Rt/6.7826)+0.00001434*abs(pow(log(Rt/6.7826),2.3)))-273;
+			sum+=res;
+			q++;
+		}  
+    sum=sum/64;
+ 156:	89 81       	ldd	r24, Y+1	; 0x01
+ 158:	9a 81       	ldd	r25, Y+2	; 0x02
+ 15a:	00 24       	eor	r0, r0
+ 15c:	88 0f       	add	r24, r24
+ 15e:	99 1f       	adc	r25, r25
+ 160:	00 1c       	adc	r0, r0
+ 162:	88 0f       	add	r24, r24
+ 164:	99 1f       	adc	r25, r25
+ 166:	00 1c       	adc	r0, r0
+ 168:	89 2f       	mov	r24, r25
+ 16a:	90 2d       	mov	r25, r0
+ 16c:	9a 83       	std	Y+2, r25	; 0x02
+ 16e:	89 83       	std	Y+1, r24	; 0x01
+    if (dac_type==0) // если оборев МПП закончен
+ 170:	80 91 00 01 	lds	r24, 0x0100
+ 174:	81 11       	cpse	r24, r1
+ 176:	19 c0       	rjmp	.+50     	; 0x1aa <main+0xd4>
+						{//SPCR &= ~(1<<CPOL);
+                       // SPCR &= ~(1<<CPHA);
+                       // SPCR |= (1<<DORD);
+                        sum=(sum<<2)&0x3FFF;
+ 178:	89 81       	ldd	r24, Y+1	; 0x01
+ 17a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 17c:	88 0f       	add	r24, r24
+ 17e:	99 1f       	adc	r25, r25
+ 180:	88 0f       	add	r24, r24
+ 182:	99 1f       	adc	r25, r25
+ 184:	9f 73       	andi	r25, 0x3F	; 63
+ 186:	9a 83       	std	Y+2, r25	; 0x02
+ 188:	89 83       	std	Y+1, r24	; 0x01
+						SPI_ReadByte(sum);
+ 18a:	89 81       	ldd	r24, Y+1	; 0x01
+ 18c:	9a 81       	ldd	r25, Y+2	; 0x02
+ 18e:	0e 94 48 00 	call	0x90	; 0x90 <SPI_ReadByte>
+                        PORTB |= (1<<SPI_SS);
+ 192:	2a 9a       	sbi	0x05, 2	; 5
+                        sum=sum|0xC000;
+ 194:	89 81       	ldd	r24, Y+1	; 0x01
+ 196:	9a 81       	ldd	r25, Y+2	; 0x02
+ 198:	90 6c       	ori	r25, 0xC0	; 192
+ 19a:	9a 83       	std	Y+2, r25	; 0x02
+ 19c:	89 83       	std	Y+1, r24	; 0x01
+                        SPI_ReadByte(sum);
+ 19e:	89 81       	ldd	r24, Y+1	; 0x01
+ 1a0:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1a2:	0e 94 48 00 	call	0x90	; 0x90 <SPI_ReadByte>
+                        PORTB |= (1<<SPI_SS);
+ 1a6:	2a 9a       	sbi	0x05, 2	; 5
+ 1a8:	c0 cf       	rjmp	.-128    	; 0x12a <main+0x54>
+						}
+    else
+    {   //SPCR |= (1<<CPOL);
+        //SPCR |= (1<<CPHA);
+        //SPCR &= ~(1<<DORD);
+        tmp=(sum>>8);
+ 1aa:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ac:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1ae:	89 2f       	mov	r24, r25
+ 1b0:	99 27       	eor	r25, r25
+ 1b2:	9c 83       	std	Y+4, r25	; 0x04
+ 1b4:	8b 83       	std	Y+3, r24	; 0x03
+        SPI_ReadByte(tmp);
+ 1b6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1b8:	9c 81       	ldd	r25, Y+4	; 0x04
+ 1ba:	0e 94 48 00 	call	0x90	; 0x90 <SPI_ReadByte>
+        PORTB &= ~(1<<SPI_SS);
+ 1be:	2a 98       	cbi	0x05, 2	; 5
+        SPI_ReadByte(sum);
+ 1c0:	89 81       	ldd	r24, Y+1	; 0x01
+ 1c2:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1c4:	0e 94 48 00 	call	0x90	; 0x90 <SPI_ReadByte>
+        PORTB &= ~(1<<SPI_SS);
+ 1c8:	2a 98       	cbi	0x05, 2	; 5
+ 1ca:	af cf       	rjmp	.-162    	; 0x12a <main+0x54>
 
-000000b8 <_exit>:
-  b8:	f8 94       	cli
+000001cc <_exit>:
+ 1cc:	f8 94       	cli
 
-000000ba <__stop_program>:
-  ba:	ff cf       	rjmp	.-2      	; 0xba <__stop_program>
+000001ce <__stop_program>:
+ 1ce:	ff cf       	rjmp	.-2      	; 0x1ce <__stop_program>
